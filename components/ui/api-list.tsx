@@ -28,7 +28,7 @@ export const ApiList: React.FC<ApiListProps> = ({
     <>
       <Accordion type="single" collapsible>
         <AccordionItem value="item-1">
-          <AccordionTrigger>Show Api Routes</AccordionTrigger>
+          <AccordionTrigger>API Routes</AccordionTrigger>
           <AccordionContent>
             <ApiAlert title="GET" variant="public" description={`${baseUrl}/${entityName}`} />
             <ApiAlert title="GET" variant="public" description={`${baseUrl}/${entityName}/{${entityIdName}}`} />

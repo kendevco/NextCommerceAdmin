@@ -26,6 +26,14 @@ import { AlertModal } from "@/components/modals/alert-modal"
 import { ApiAlert } from "@/components/ui/api-alert"
 import { useOrigin } from "@/hooks/use-origin"
 
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion"
+
+
 const formSchema = z.object({
   name: z.string().min(2),
 });
@@ -122,11 +130,18 @@ export const SettingsForm: React.FC<SettingsFormProps> = ({
         </form>
       </Form>
       <Separator />
-      <ApiAlert
-        title="NEXT_PUBLIC_API_URL"
-        variant="public"
-        description={`${origin}/api/${params.storeId}`}
-      />
+      <Accordion type="single" collapsible>
+        <AccordionItem value="item-1">
+          <AccordionTrigger>API Routes</AccordionTrigger>
+          <AccordionContent>
+                <ApiAlert
+                  title="NEXT_PUBLIC_API_URL"
+                  variant="public"
+                  description={`${origin}/api/${params.storeId}`}
+                />
+            </AccordionContent>
+        </AccordionItem>
+      </Accordion>
     </>
   );
 };
