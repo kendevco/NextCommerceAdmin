@@ -1,19 +1,14 @@
 "use client"
-
 import { ColumnDef } from "@tanstack/react-table"
 
-import { CellAction } from "./cell-action"
-
-import  Image  from "next/image"
-
 export type OrderColumn = {
-  id: string
+  id: string;
   phone: string;
   address: string;
-  isPaid: boolean,
-  totalPrice: string,
-  products: string,
-  createdAt: string,
+  isPaid: boolean;
+  totalPrice: string;
+  products: string;
+  createdAt: string;
 }
 
 export const columns: ColumnDef<OrderColumn>[] = [
@@ -31,7 +26,7 @@ export const columns: ColumnDef<OrderColumn>[] = [
   },
   {
     accessorKey: "totalPrice",
-    header: "Total Price",
+    header: "Total price",
   },
   {
     accessorKey: "isPaid",
