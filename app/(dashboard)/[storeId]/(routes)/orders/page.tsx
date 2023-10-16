@@ -1,6 +1,6 @@
 import { format } from "date-fns";
 
-import db from "@/lib/prismadb";
+import prismadb from "@/lib/prismadb";
 
 import { OrderColumn } from "./components/columns"
 import { OrderClient } from "./components/client";
@@ -11,7 +11,7 @@ const OrdersPage = async ({
 }: {
   params: { storeId: string }
 }) => {
-  const orders = await db.order.findMany({
+  const orders = await prismadb.order.findMany({
     where: {
       storeId: params.storeId
     },

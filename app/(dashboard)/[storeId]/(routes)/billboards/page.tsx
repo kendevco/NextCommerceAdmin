@@ -1,6 +1,6 @@
 import { format } from "date-fns";
 
-import db from "@/lib/prismadb";
+import prismadb from "@/lib/prismadb";
 
 import { BillboardColumn } from "./components/columns"
 import { BillboardClient } from "./components/client";
@@ -10,7 +10,7 @@ const BillboardsPage = async ({
 }: {
   params: { storeId: string }
 }) => {
-  const billboards = await db.billboard.findMany({
+  const billboards = await prismadb.billboard.findMany({
     where: {
       storeId: params.storeId
     },

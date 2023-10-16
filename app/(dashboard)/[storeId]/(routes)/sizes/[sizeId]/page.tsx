@@ -1,4 +1,4 @@
-import db from "@/lib/prismadb";
+import prismadb from "@/lib/prismadb";
 import { SizeForm } from "./components/size-form";
 import { ObjectId } from 'mongodb';
 
@@ -14,7 +14,7 @@ const SizePage = async ({
       sizeId = new ObjectId().toHexString();
     }
     
-    const size = await db.size.findUnique({
+    const size = await prismadb.size.findUnique({
       where: {
         id: sizeId
       }

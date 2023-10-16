@@ -1,4 +1,4 @@
-import db from "@/lib/prismadb";
+import prismadb from "@/lib/prismadb";
 import { CategoryForm } from "./components/category-form";
 import { ObjectId } from 'mongodb';
 
@@ -14,13 +14,13 @@ const CategoryPage = async ({
       categoryId = new ObjectId().toHexString();
     }
     
-    const category = await db.category.findUnique({
+    const category = await prismadb.category.findUnique({
       where: {
         id: categoryId
       }
     });
 
-    const billboards = await db.billboard.findMany(
+    const billboards = await prismadb.billboard.findMany(
       {
         where: {
           storeId: params.storeId

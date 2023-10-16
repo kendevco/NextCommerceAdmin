@@ -1,6 +1,6 @@
 import { format } from "date-fns";
 
-import db from "@/lib/prismadb";
+import prismadb from "@/lib/prismadb";
 import { formatter } from "@/lib/utils";
 
 import { ProductsClient } from "./components/client";
@@ -11,7 +11,7 @@ const ProductsPage = async ({
 }: {
   params: { storeId: string }
 }) => {
-  const products = await db.product.findMany({
+  const products = await prismadb.product.findMany({
     where: {
       storeId: params.storeId
     },

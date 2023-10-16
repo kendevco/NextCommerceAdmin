@@ -1,4 +1,4 @@
-import db from "@/lib/prismadb";
+import prismadb from "@/lib/prismadb";
 import { ColorForm } from "./components/color-form";
 import { ObjectId } from 'mongodb';
 
@@ -14,7 +14,7 @@ const ColorPage = async ({
       colorId = new ObjectId().toHexString();
     }
     
-    const color = await db.color.findUnique({
+    const color = await prismadb.color.findUnique({
       where: {
         id: colorId
       }

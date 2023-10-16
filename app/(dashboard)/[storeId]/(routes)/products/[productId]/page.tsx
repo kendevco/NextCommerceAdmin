@@ -1,4 +1,4 @@
-import db from "@/lib/prismadb";
+import prismadb from "@/lib/prismadb";
 
 import { ProductForm } from "./components/product-form";
 import { ObjectId } from "mongodb";
@@ -15,7 +15,7 @@ const ProductPage = async ({
     productId = new ObjectId().toHexString();
   }
   
-  const product = await db.product.findUnique({
+  const product = await prismadb.product.findUnique({
     where: {
       id: productId, // use the generated ObjectId value
     },
@@ -24,19 +24,19 @@ const ProductPage = async ({
     }
   });
 
-  const categories = await db.category.findMany({
+  const categories = await prismadb.category.findMany({
     where: {
       storeId: params.storeId,
     },
   });
 
-  const sizes = await db.size.findMany({
+  const sizes = await prismadb.size.findMany({
     where: {
       storeId: params.storeId,
     },
   });
 
-  const colors = await db.color.findMany({
+  const colors = await prismadb.color.findMany({
     where: {
       storeId: params.storeId,
     },

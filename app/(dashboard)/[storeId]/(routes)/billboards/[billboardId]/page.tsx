@@ -1,4 +1,4 @@
-import db from "@/lib/prismadb";
+import prismadb from "@/lib/prismadb";
 import { BillboardForm } from "./components/billboard-form";
 import { ObjectId } from 'mongodb';
 
@@ -14,7 +14,7 @@ const BillboardPage = async ({
       billboardId = new ObjectId().toHexString();
     }
     
-    const billboard = await db.billboard.findUnique({
+    const billboard = await prismadb.billboard.findUnique({
       where: {
         id: billboardId
       }
